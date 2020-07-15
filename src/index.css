@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+    font-family: 'Futura-Medium-01';
+    src: local('Futura-Medium-01'), url(./assets/fonts/Futura-Medium-01.ttf) format('truetype');
+}
