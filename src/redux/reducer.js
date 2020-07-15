@@ -1,5 +1,8 @@
+const initialState = {
+    currentUser: "NATHANIEL"
+}
 
-const reducer = (state={}, action) => {
+const reducer = (state=initialState, action) => {
     switch (action.type) {
         default:
             return state

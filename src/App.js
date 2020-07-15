@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
-import { Grid, Menu, Segment } from 'semantic-ui-react'
-import SideContainer from './containers/SideContainer'
-import FocusContainer from './containers/FocusContainer'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Switch, Redirect, withRouter } from 'react-router-dom'
+
+import { connect } from 'react-redux'
+
 import NavBar from './components/NavBar'
+import ContentGrid from './containers/ContentGrid'
+import Lobby from './containers/Lobby'
+
 import './App.css';
 
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
-            <div>
-            <NavBar />
-            <Grid id="grad">
-                <Grid.Column width={4} >
-                    <SideContainer mesg="GEORGE LUCAS" style={{backgroundColor: "lightblue"}} />
-                </Grid.Column>
-                <Grid.Column width={8} >
-                    <FocusContainer />
-                </Grid.Column>
-                <Grid.Column width={4} >
-                    <SideContainer mesg="DAVID LEAN" style={{backgroundColor: "coral"}} />
-                </Grid.Column>
-            </Grid>
-            </div>
-            )
+                <div id='supra'>
+                <NavBar />
+                <ContentGrid />
+                </div>
+        )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {currentUser: state.currentUser}
+}
+
+export default connect(mapStateToProps)(App)
 
 // return (
 //   <div className="App">
@@ -44,3 +45,7 @@ export default class App extends Component {
 //     </header>
 //   </div>
 // );
+//
+// <Switch>
+//     <Route path="*" render={(rp) => <Lobby />}/>
+// </Switch>
