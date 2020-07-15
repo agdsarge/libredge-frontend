@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Menu, Segment } from 'semantic-ui-react'
+import SideContainer from './containers/SideContainer'
+import FocusContainer from './containers/FocusContainer'
+import NavBar from './components/NavBar'
 import './App.css';
 
 export default class App extends Component {
     render() {
         return (
-            <Grid style={{backgroundColor: "black"}}>
+            <div>
+            <NavBar />
+            <Grid id="grad">
                 <Grid.Column width={4} >
-                    <div style={{backgroundColor: "lightblue"}}>
-                        <p> GEORGE LUCAS </p>
-                    </div>
+                    <SideContainer mesg="GEORGE LUCAS" style={{backgroundColor: "lightblue"}} />
                 </Grid.Column>
                 <Grid.Column width={8} >
-                    <div style={{backgroundColor: "limegreen", textAlign: "center"}}>
-                        <p> WES ANDERSON </p>
-                        <p> another p </p>
-                    </div>
+                    <FocusContainer />
                 </Grid.Column>
                 <Grid.Column width={4} >
-                    <div style={{backgroundColor: "coral", textAlign: "right"}}>
-                        <p> DAVID LEAN </p>
-                    </div>
+                    <SideContainer mesg="DAVID LEAN" style={{backgroundColor: "coral"}} />
                 </Grid.Column>
             </Grid>
+            </div>
             )
     }
 }

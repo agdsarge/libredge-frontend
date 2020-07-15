@@ -29,7 +29,8 @@
 } */
 
 div {
-    font-family: Futura-Medium-01
+    font-family: Futura-Medium-01;
+    color: ivory;
 }
 
 /* @keyframes App-logo-spin {
