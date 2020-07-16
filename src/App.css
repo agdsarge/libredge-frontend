@@ -1,5 +1,5 @@
 div#supra {
-    background-image: linear-gradient(to bottom, ivory 0%, slategrey 10%, black 20%);
+    background-image: linear-gradient(to bottom, ivory 0%, slategrey 8%, black 16%);
 }
 
 div {
@@ -18,7 +18,7 @@ div#mainGrid {
 
 div#focusContainer {
     text-align: center;
-    height: 90vh;
+    height: 85vh;
     border: 1px;
     border-style: solid;
     border-color: ivory;

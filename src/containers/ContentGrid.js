@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Menu, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import SideContainer from './SideContainer'
 import FocusContainer from './FocusContainer'
 
@@ -8,13 +8,13 @@ export default class ContentGrid extends Component {
         return (
             <Grid id="mainGrid">
                 <Grid.Column width={4} >
-                    <SideContainer mesg="GEORGE LUCAS" style={{backgroundColor: "lightblue"}} />
+                    <SideContainer orientation="left" />
                 </Grid.Column>
                 <Grid.Column width={8} >
                     <FocusContainer />
                 </Grid.Column>
                 <Grid.Column width={4} >
-                    <SideContainer mesg="DAVID LEAN" style={{backgroundColor: "coral"}} />
+                    <SideContainer orientation="right" />
                 </Grid.Column>
             </Grid>
         )

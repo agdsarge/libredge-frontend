@@ -6,9 +6,6 @@ export default class FocusContainer extends Component {
             <div id="focusContainer">
                 <p> WES ANDERSON </p>
                 <p> another p </p>
-
-
-
             </div>
         )
     }
