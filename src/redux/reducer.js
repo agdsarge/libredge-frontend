@@ -5,6 +5,8 @@ const initialState = {
 
 const reducer = (state=initialState, action) => {
     switch (action.type) {
+        //case x:
+            //return y
         default:
             return state
     }
