@@ -16,9 +16,24 @@ div#mainGrid {
     /* boder: 1px solid ivory; */
 }
 
+div#focusContainer {
+    text-align: center;
+    height: 90vh;
+    border: 1px;
+    border-style: solid;
+    border-color: ivory;
+}
+
 div#sideContainer {
+    margin-top: 180px;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 40vh;
+    text-align: center;
     top: 50%;
+    border: 1px;
+    border-style: solid;
+    border-color: ivory;
 }
 
 
