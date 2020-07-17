@@ -2,17 +2,12 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 
 export default class NavBar extends Component {
-    constructor() {
-        super()
-        this.state = {hover: null}
-    }
 
     handleMouse = (e, bool) => {
         bool ? e.target.style.color = 'cornflowerBlue' : e.target.style.color = 'black'
     }
 
     render() {
-        let { hover } = this.state
         return (
             <div id='navBarMenuSemantic'>
                 <Menu pointing secondary>
@@ -23,7 +18,6 @@ export default class NavBar extends Component {
                     </Menu.Menu>
                 </Menu>
             </div>
-
         )
     }
 }

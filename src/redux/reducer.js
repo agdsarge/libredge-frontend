@@ -1,6 +1,6 @@
 const initialState = {
     currentUser: null,
-    currentRoute: 'login'
+    currentRoute: 'game'
 }
 
 const reducer = (state=initialState, action) => {

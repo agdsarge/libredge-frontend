@@ -1,5 +1,5 @@
 div#supra {
-    background-image: linear-gradient(to bottom, ivory 0%, slategrey 8%, black 16%);
+    background-image: linear-gradient(to bottom, ivory 0%, slategrey 6%, black 12%);
 }
 
 div {
@@ -34,6 +34,13 @@ div#sideContainer {
     border: 1px;
     border-style: solid;
     border-color: ivory;
+}
+
+div#borderedChatHistory {
+    text-align: left;
+    border: 1px;
+    overflow: scroll;
+    height: 70%
 }
 
 
