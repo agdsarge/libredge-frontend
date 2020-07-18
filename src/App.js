@@ -9,7 +9,21 @@ import ContentGrid from './containers/ContentGrid'
 
 import './App.css';
 
+const jwtURL = 'http://localhost:3005/api/v1/token'
+
+
 class App extends Component {
+    componentDidMount() {
+        if(localStorage.getItem('jwt-libredge')) {
+            fetch(jwtURL, {
+                method: "GET",
+                headers: {Authentication: localStorage.getItem('jwt-libredge')}
+            })
+            .then(res => res.json())
+            .then(d =>
+                this.props.dispatch({type: 'SET_USER', payload: d}))
+        }
+    }
     render() {
         return (
                 <div id='supra'>
@@ -21,7 +35,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {currentUser: state.currentUser}
+    return {
+        currentUser: state.currentUser,
+        currentRoute: state.currentRoute}
 }
 
 export default connect(mapStateToProps)(App)

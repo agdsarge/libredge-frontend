@@ -31,7 +31,7 @@ class LoginContainer extends Component {
             if (d.error) {
                 alert(d.message)
             } else {
-                localStorage.setItem('jwt', d.token)
+                localStorage.setItem('jwt-libredge', d.token)
                 console.log('LOGIN DEBUG', d)
                 this.props.dispatch({type: 'SET_USER', payload: d.user})
             }
