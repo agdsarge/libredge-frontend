@@ -24,7 +24,7 @@ class SideContainer extends Component{
     render() {
         return (
             <div id="sideContainer">
-                <p> {this.props.currentUser ?  this.props.currentUser : this.props.orientation} </p>
+                <p> {this.props.currentUser ?  this.props.currentUser.username : this.props.orientation} </p>
                 {this.childSelector()}
             </div>
         )

@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
+import LoginContainer from  './LoginContainer'
+import { connect } from 'react-redux'
 
-export default class FocusContainer extends Component {
+class FocusContainer extends Component {
     render() {
         return (
             <div id="focusContainer">
-                <p> WES ANDERSON </p>
-                <p> another p </p>
+                {this.props.currentRoute === 'login' ?
+                    <LoginContainer />
+                    :
+                    <h1> YO </h1>
+            }
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        currentUser: state.currentUser,
+        currentRoute: state.currentRoute
+    }
+}
+
+export default connect(mapStateToProps)(FocusContainer)
