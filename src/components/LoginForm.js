@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class LoginForm extends Component {
+    handleDispatch = (e) => {
+        this.props.dispatch({type: "SET_ROUTE", payload: "/register"})
+    }
 
     render(){
         let {username, password} = this.props.newUser
@@ -30,15 +34,24 @@ class LoginForm extends Component {
                         style={{backgroundColor: 'transparent', color: 'ivory'}}
                     />
                     <hr />
+
                     <input type="submit" value="Sign in"
                         style={{visibility:'hidden'}} />
                     <Button inverted color='blue'
                         onClick={this.props.handleSubmit}
-                        style={{float:'right'}}>
+                        style={{float:'right', margin:'10px'}}>
                         Sign in
                     </Button>
                 </Form>
                 <br />
+                <NavLink
+                    to="/register"
+                    exact
+                    className="reg"
+                    style={{float:'left', margin:'10px'}}
+                    onClick={this.handleDispatch}>
+                    Register a new account!
+                </NavLink>
 
             </div >
         )}
@@ -48,7 +61,7 @@ class LoginForm extends Component {
 
     const mapStateToProps = (state) => {
         return {
-            
+            currentRoute: state.currentRoute
         }
     }
 

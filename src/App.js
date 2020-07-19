@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import {BrowserRouter as Router, Route} from 'react-router-dom';
-// import { Switch, Redirect, withRouter } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import NavBar from './components/NavBar'
@@ -24,11 +23,40 @@ class App extends Component {
                 this.props.dispatch({type: 'SET_USER', payload: d}))
         }
     }
+
     render() {
         return (
                 <div id='supra'>
-                    <NavBar />
-                    <ContentGrid />
+                    <Router>
+                        <NavBar />
+                        <Switch >
+                            <Route exact path='/login' render={(rp) =>
+                                this.props.currentUser ?
+                                    <Redirect to='/lobby'/>
+                                        :
+                                    <ContentGrid {...rp} />}
+                            />
+                            <Route exact path='/register' render={(rp) =>
+                                    <ContentGrid {...rp} />} />
+
+                            <Route exact path='/game' render={(rp) =>
+                                this.props.currentUser ?
+                                    <ContentGrid {...rp} />
+                                        :
+                                    <Redirect to='/login' />}
+                            />
+                            <Route exact path='/lobby' render={(rp) =>
+                                this.props.currentUser ?
+                                    <ContentGrid {...rp} />
+                                        :
+                                    <Redirect to='/login' />}
+                            />
+
+
+
+                        </Switch >
+                    </Router>
+
                 </div>
         )
     }

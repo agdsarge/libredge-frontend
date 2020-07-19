@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
-import LoginContainer from  './LoginContainer'
 import { connect } from 'react-redux'
 
+import LoginContainer from  './LoginContainer'
+import RegisterContainer from './RegisterContainer'
+import GameContainer from './GameContainer'
+import Lobby from './Lobby'
+
 class FocusContainer extends Component {
+
+    selectFocus = () => {
+        switch (this.props.currentRoute) {
+            case '/login':
+                return <LoginContainer />
+            case '/register':
+                return <RegisterContainer />
+            case '/game':
+                return <GameContainer />
+            default:
+                return <Lobby />
+        }
+    }
+
     render() {
         return (
             <div id="focusContainer">
-                {this.props.currentRoute === 'login' ?
-                    <LoginContainer />
-                    :
-                    <h1> YO </h1>
-            }
+                {this.selectFocus()}
             </div>
         )
     }

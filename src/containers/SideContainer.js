@@ -7,8 +7,7 @@ import ChatContainer from './ChatContainer'
 class SideContainer extends Component{
 
     childSelector = () => {
-        console.log(this.props)
-        if (this.props.currentRoute === 'game') {
+        if (this.props.currentRoute === '/game') {
             if (this.props.orientation === 'right') {
                 return <h2> options </h2>
             } else {

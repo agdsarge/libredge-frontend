@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class NavBar extends Component {
@@ -13,9 +14,12 @@ class NavBar extends Component {
         localStorage.clear()
     }
 
+    handleDispatch = (e) => {
+        this.props.dispatch({type: "SET_ROUTE", payload: '/login'})
+    }
 
     render() {
-        console.log(this.props.currentUser)
+
         return (
             <div id='navBarMenuSemantic'>
                 <Menu pointing secondary>
@@ -24,15 +28,22 @@ class NavBar extends Component {
                     <Menu.Menu position="right">
                         { this.props.currentUser ?
                             <Menu.Item name="SIGN OUT"
+                                style={{fontSize:'20px'}}
                                 onMouseOver={(e) => this.handleMouse(e, true)}
                                 onMouseLeave={(e) => this.handleMouse(e, false)}
                                 onClick={this.handleLogOut}
                             />
                             :
-                            <Menu.Item name="SIGN IN"
+                            <NavLink
+        						to="/login"
+        						exact
+        						className="reg"
+                                style={{float:'left', fontSize:'20px', marginTop:'18px', marginRight: '18px'}}
                                 onMouseOver={(e) => this.handleMouse(e, true)}
                                 onMouseLeave={(e) => this.handleMouse(e, false)}
-                            />
+                                onClick={this.handleDispatch}>
+        						SIGN IN
+                            </NavLink>
                     }
                     </Menu.Menu>
                 </Menu>
@@ -43,7 +54,8 @@ class NavBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        currentRoute: state.currentRoute
     }
 }
 

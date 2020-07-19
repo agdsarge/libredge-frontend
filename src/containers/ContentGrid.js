@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+
 import SideContainer from './SideContainer'
 import FocusContainer from './FocusContainer'
 
-export default class ContentGrid extends Component {
+class ContentGrid extends Component {
+    componentDidMount() {
+        console.log("CGRID did mount", this.props.match.path)
+        this.props.dispatch({type: 'SET_ROUTE', payload: this.props.match.path})
+    }
     render() {
         return (
             <Grid id="mainGrid">
@@ -20,3 +26,12 @@ export default class ContentGrid extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+    currentRoute: state.currentRoute,
+    currentUser: state.currentUser
+    }
+}
+
+export default connect(mapStateToProps)(ContentGrid)
