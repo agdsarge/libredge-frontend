@@ -18,6 +18,10 @@ class NavBar extends Component {
         this.props.dispatch({type: "SET_ROUTE", payload: '/login'})
     }
 
+    handleDispatch2 = (e) => {
+        this.props.dispatch({type: "SET_ROUTE", payload: '/game'})
+    }
+
     render() {
 
         return (
@@ -25,6 +29,16 @@ class NavBar extends Component {
                 <Menu pointing secondary>
                     <Menu.Item name="LIBREDGE" onMouseOver={(e) => this.handleMouse(e, true)} onMouseLeave={(e) => this.handleMouse(e, false)}/>
                     <Menu.Item name="OTHER" onMouseOver={(e) => this.handleMouse(e, true)} onMouseLeave={(e) => this.handleMouse(e, false)}/>
+                    <NavLink
+                        to="/game"
+                        exact
+                        className="reg"
+                        style={{float:'left', fontSize:'20px', marginTop:'18px', marginRight: '18px'}}
+                        onMouseOver={(e) => this.handleMouse(e, true)}
+                        onMouseLeave={(e) => this.handleMouse(e, false)}
+                        onClick={this.handleDispatch2}>
+                        TEST GAME
+                    </NavLink>
                     <Menu.Menu position="right">
                         { this.props.currentUser ?
                             <Menu.Item name="SIGN OUT"

@@ -9,6 +9,7 @@ import Lobby from './Lobby'
 class FocusContainer extends Component {
 
     selectFocus = () => {
+        console.log("selectFocus", this.props.currentRoute)
         switch (this.props.currentRoute) {
             case '/login':
                 return <LoginContainer />

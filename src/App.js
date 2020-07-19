@@ -51,6 +51,7 @@ class App extends Component {
                                         :
                                     <Redirect to='/login' />}
                             />
+                            <Route path="*" render={(rp) => <ContentGrid {...rp} />}/>
 
 
 
