@@ -15,6 +15,7 @@ export default class ChatForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        // what mysterious socket code goes here?
         this.setState({chatInput: ''})
     }
 

@@ -43,6 +43,11 @@ div#borderedChatHistory {
     height: 70%
 }
 
+input{
+  background-color: transparent;
+  color:ivory;
+}
+
 
 /* .App {
   text-align: center;

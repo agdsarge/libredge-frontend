@@ -13,15 +13,12 @@ export default class ChatHistory extends Component {
         .then(d => {
             this.setState({history: d.messages})
         })
-
     }
 
     createChatHistory = () => {
-        return this.state.history.map(c => {
-            let usr = c.user.username
-            let mesg = c.body
-            return <p><i>{usr}</i>: {mesg}</p>
-        })
+        return this.state.history.map(c => 
+            <p key={c.id}><i>{c.user.username}</i>: {c.body}</p>
+        )
     }
 
     render() {
