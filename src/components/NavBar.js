@@ -8,6 +8,12 @@ class NavBar extends Component {
         bool ? e.target.style.color = 'cornflowerBlue' : e.target.style.color = 'black'
     }
 
+    handleLogOut = (e) => {
+        this.props.dispatch({type: "SET_USER", payload: null})
+        localStorage.clear()
+    }
+
+
     render() {
         console.log(this.props.currentUser)
         return (
@@ -20,12 +26,12 @@ class NavBar extends Component {
                             <Menu.Item name="SIGN OUT"
                                 onMouseOver={(e) => this.handleMouse(e, true)}
                                 onMouseLeave={(e) => this.handleMouse(e, false)}
+                                onClick={this.handleLogOut}
                             />
                             :
                             <Menu.Item name="SIGN IN"
                                 onMouseOver={(e) => this.handleMouse(e, true)}
                                 onMouseLeave={(e) => this.handleMouse(e, false)}
-                                onClick={(e) => this.props.dispatch({action: "SET_USER", payload: null})}
                             />
                     }
                     </Menu.Menu>
